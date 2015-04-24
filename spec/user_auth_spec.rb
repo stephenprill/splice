@@ -34,5 +34,4 @@ describe 'Splice user auth', :type => :feature do
     click_on 'Log out'
     expect(page).to have_content('Music Made Better')
   end
-
 end
