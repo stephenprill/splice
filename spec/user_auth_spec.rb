@@ -320,7 +320,4 @@ describe 'Splice user auth', :type => :feature do
     click_on 'Log In'
     expect(page).to have_content('Dashboard')
   end
-
-
-
 end
