@@ -60,7 +60,6 @@ describe 'Splice user auth', :type => :feature do
     expect(find_field('Username')['class']).to match('ng-invalid')
   end
 
-#new
   it 'does not allow user to signup with username less than 3 characters' do
     visit '/'
 
