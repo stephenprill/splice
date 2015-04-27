@@ -6,7 +6,7 @@ Repo to tests user auth for Splice using Rspec, Capybara and Selenium WebDriver.
 
 * `git clone <repository-url>` this repository
 * change into the new directory
-* run 'bundle install'
+* run `bundle install`
 * run `rspec`
 
 ## Enviroments
@@ -24,4 +24,4 @@ Can be run in two different enviroments, staging and production using following:
 * If you already have Firefox installed, make sure you have the latest version:
   https://support.mozilla.org/en-US/kb/update-firefox-latest-version
 
-* Running this test currently creates actual accounts on Splice so you might want to clean them up after running! 
+* Running this test currently creates actual accounts on Splice so you might want to clean them up after running!

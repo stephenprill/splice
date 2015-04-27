@@ -1,4 +1,3 @@
-
 require 'capybara/rspec'
 
 Capybara.default_driver = :selenium
@@ -46,12 +45,9 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser#{random}@mailinator.com"
-
     fill_in 'Username', with: ''
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'test123@example.com'
     fill_in 'Password', with: 'password123'
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
@@ -65,12 +61,9 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser#{random}@mailinator.com"
-
     fill_in 'Username', with: 'Ja'
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'test123@example.com'
     fill_in 'Password', with: 'password123'
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
@@ -97,18 +90,14 @@ describe 'Splice user auth', :type => :feature do
     expect(find_field('Password')['class']).to match('ng-invalid')
   end
 
-  it 'does not allow user to signup without a artist or full name' do
+  it 'does not allow user to signup without an artist or full name' do
     visit '/'
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    username = "TestUser#{random}"
-    email = "testuser#{random}@mailinator.com"
-
-    fill_in 'Username', with: username
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: ''
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'test123@example.com'
     fill_in 'Password', with: 'password123'
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
@@ -122,17 +111,14 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser#{random}@mailinator.com"
-    username = "TestUser#{random}"
-
-    fill_in 'Username', with: username
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'test123@example.com'
     fill_in 'Password', with: ''
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
     click_on 'Sign Up'
+
     expect(find_field('Password')['class']).to match('ng-invalid')
   end
 
@@ -141,17 +127,14 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser#{random}@mailinator.com"
-    username = "TestUser#{random}"
-
-    fill_in 'Username', with: username
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'test123@example.com'
     fill_in 'Password', with: 'pass'
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
     click_on 'Sign Up'
+
     expect(find_field('Password')['class']).to match('ng-invalid')
   end
 
@@ -160,19 +143,14 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    username = "TestUser#{random}"
-
-    fill_in 'Username', with: ''
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: 'Jones'
     fill_in 'Email address', with: 'mailinator.com'
-    fill_in 'Password', with: 88888888
+    fill_in 'Password', with: 'password123'
 
-    expect(find_field('Username')['class']).to match('ng-invalid')
-
-    fill_in 'Username', with: username
-
+		check 'I accept Splice\'s Terms of Use and Privacy Policy.'
     click_on 'Sign Up'
+
     expect(find_field('Email address')['class']).to match('ng-invalid')
   end
 
@@ -181,18 +159,10 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser1234567@mailinator.com"
-    username = "TestUser#{random}"
-
-    fill_in 'Username', with: ''
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'testuser1234567@mailinator.com'
     fill_in 'Password', with: 'password123'
-
-    expect(find_field('Username')['class']).to match('ng-invalid')
-
-    fill_in 'Username', with: username
 
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
     click_on 'Sign Up'
@@ -205,18 +175,10 @@ describe 'Splice user auth', :type => :feature do
 
     find('.signup-button').click
 
-    random = Random.rand(10**8)
-    email = "testuser1234567@mailinator.com"
-    username = "TestUser#{random}"
-
-    fill_in 'Username', with: ''
+    fill_in 'Username', with: 'testuser1234567'
     fill_in 'Artist or Full Name', with: 'Jones'
-    fill_in 'Email address', with: email
+    fill_in 'Email address', with: 'testuser1234567@mailinator.com'
     fill_in 'Password', with: 'password123'
-
-    expect(find_field('Username')['class']).to match('ng-invalid')
-
-    fill_in 'Username', with: username
 
     click_on 'Sign Up'
 
@@ -232,7 +194,7 @@ describe 'Splice user auth', :type => :feature do
     email = "TESTUSER#{random}@MAILINATOR.COM"
     username = "TestUser#{random}"
 
-    fill_in 'Username', with: ''
+    fill_in 'Username', with: username
     fill_in 'Artist or Full Name', with: 'Jones'
     fill_in 'Email address', with: email
     fill_in 'Password', with: 'password123'
@@ -240,23 +202,17 @@ describe 'Splice user auth', :type => :feature do
     check 'I accept Splice\'s Terms of Use and Privacy Policy.'
     click_on 'Sign Up'
 
-    expect(find_field('Username')['class']).to match('ng-invalid')
-
-    fill_in 'Username', with: username
-
-    click_on 'Sign Up'
+		expect(page).to have_content('Dashboard')
   end
 
-  # login
+#login
 
   it 'allows user to login to existing account with valid username' do
     visit '/'
 
     find('a', text: 'Log In').click
 
-    username = "testuser1234567"
-
-    fill_in 'Username or email address', with: username
+    fill_in 'Username or email address', with: 'testuser1234567'
     fill_in 'Password', with: 'password'
 
     click_on 'Log In'
@@ -268,9 +224,7 @@ describe 'Splice user auth', :type => :feature do
 
     find('a', text: 'Log In').click
 
-    email = "testuser1234567@mailinator.com"
-
-    fill_in 'Username or email address', with: email
+    fill_in 'Username or email address', with: 'testuser1234567@mailinator.com'
     fill_in 'Password', with: 'password'
 
     click_on 'Log In'
@@ -306,15 +260,13 @@ describe 'Splice user auth', :type => :feature do
 
     find('a', text: 'Log In').click
 
-    username = "testuser1234567"
-
     fill_in 'Username or email address', with: ''
     fill_in 'Password', with: ''
 
     click_on 'Log In'
     expect(page). to have_content('This field is required')
 
-    fill_in 'Username or email address', with: username
+    fill_in 'Username or email address', with: 'testuser1234567'
     fill_in 'Password', with: 'password'
 
     click_on 'Log In'
