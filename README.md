@@ -9,12 +9,12 @@ Repo to tests user auth for Splice using Rspec, Capybara and Selenium WebDriver.
 * run `bundle install`
 * run `rspec`
 
-## Enviroments
+## Environments
 
-Can be run in two different enviroments, staging and production using following:
+Can be run in two different environments, staging and production using following:
 
-* run `SERVER=staging` for staging (https://staging.splice.com)
-* run `SERVER=production` for production (https://splice.com)
+* run `SERVER=staging rspec` for staging (https://staging.splice.com)
+* run `SERVER=production rspec` for production (https://splice.com)
 
 ## Configuration
 
